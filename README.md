@@ -10,12 +10,11 @@ Clone of the famous PAINT in windows made using HTML,CSS,JAVASCRIPT.
 
 
 ## Project specifications
-
--Draw anything using your mouse.
--You can draw shapes like rectangle,circle and triangle.
--Choose the size of the brush and eraser to your comfort.
--Choose any color and make color filled shapes
--After your masterpiece is finished download it and share it!
+#Draw anything using your mouse.
+#You can draw shapes like rectangle,circle and triangle.
+#Choose the size of the brush and eraser to your comfort.
+#Choose any color and make color filled shapes
+#After your masterpiece is finished download it and share it!
 
 
 
