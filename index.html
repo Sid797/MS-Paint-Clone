@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MS paint clone</title>+
+    <link rel="stylesheet" href="/public/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/dist/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <section class="tools-board">
+            <div class="row">
+                <label for="" class="title">
+                    Shapes
+                </label>
+                <ul class="options">
+                    <li class="option tool" id="rectangle">
+                        <img src="icons/icons8-rectangle-16.png" alt="" srcset="">  
+                        <span>Rectangle</span>
+                    </li>
+                    <li class="option tool" id="circle"> 
+                        <img src="icons/icons8-circle-16.png" alt="" srcset="">  
+                        <span>Circle</span>
+                    </li>
+                    <li class="option tool" id="triangle">
+                        <img src="icons/icons8-triangle-16.png" alt="" srcset="">  
+                        <span>Triangle</span>
+                    </li>
+                    <li class="option">
+                        <input type="checkbox" id="fill-color">
+                        <label for="">Fill color</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <label for="" class="title">
+                    Options
+                </label>
+                <ul class="options">
+                    <li class="option active tool" id="brush">
+                        <img src="icons/icons8-illustrator-16.png" alt="" srcset="">  
+                        <span>Brush</span>
+                    </li>
+                    <li class="option tool" id="eraser">
+                        <img src="icons/icons8-eraser-16.png" alt="" srcset="">  
+                        <span>Eraser</span>
+                    </li>
+                    <li class="option">
+                        <input type="range" id="size-slider" min="1" max="30" value="5">
+                    </li>
+                </ul>
+            </div>
+            <div class="row colors">
+                <label for="" class="title">
+                    <img src="icons/icons8-paint-palette-16.png" alt="" srcset="">
+                    Colors
+                </label>
+                <ul class="options">
+                   <li class="option"></li>
+                   <li class="option selected"></li>
+                   <li class="option"></li>
+                   <li class="option"></li>
+                   <li class="option">
+                    <input type="color" id="color-picker" value="#4A98F7">
+                   </li>
+                </ul>
+            </div>
+            <div class="row">
+                <button type="button" class="buttons clear-canvas">Clear Canvas</button>
+                <button type="button" class="buttons save-image">Save as Image</button>
+            </div>
+        </section>
+        <SECTION class="drawing-board">
+            <canvas></canvas>
+        </SECTION>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
