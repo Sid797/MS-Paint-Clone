@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MS paint clone</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>MS paint clone</title>+
+    <link rel="stylesheet" href="/public/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/dist/script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -65,8 +66,8 @@
                 </ul>
             </div>
             <div class="row">
-                <button class="buttons clear-canvas">Clear Canvas</button>
-                <button class="buttons save-image">Save as Image</button>
+                <button type="button" class="buttons clear-canvas">Clear Canvas</button>
+                <button type="button" class="buttons save-image">Save as Image</button>
             </div>
         </section>
         <SECTION class="drawing-board">

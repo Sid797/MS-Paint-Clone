@@ -1,0 +1,16 @@
+{
+  "name": "ms-paint-clone-main",
+  "version": "1.0.0",
+  "description": "![Screenshot 2023-09-07 at 13-08-07 MS paint clone](https://github.com/Sid797/MS-Paint-Clone/assets/121742181/f4da822b-9cb1-4d3c-b254-c543e1769ddc)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  }
+}
