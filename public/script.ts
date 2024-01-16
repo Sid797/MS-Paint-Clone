@@ -39,9 +39,16 @@ const emitDrawingData = (data: unknown) => {
 const emitRectangleData = (data) => {
   socket.emit('drawing', data);
   console.log("drawing data:",data)
-
-  
 };
+
+const emitCircleData =(data)=>{
+  socket.emit('drawing', data);
+  console.log("drawing data:",data)
+}
+const emitTriangleData=(data)=>{
+  socket.emit('drawing', data);
+  console.log("drawing data:",data)
+}
   
 const setCanvasBackground = () => {
   // Setting whole canvas background to white, so the download img background will be white
@@ -225,6 +232,38 @@ socket.on('drawing', (data) => {
       }
     }
     console.log('Received drawing data:', data);
+  }else if(data.type==='circle'){
+    if (ctx) {
+      // Apply the received drawing data
+      ctx.beginPath();
+      ctx.strokeStyle = data.color;
+      ctx.fillStyle = data.color;
+      ctx.lineWidth = data.width;
+      let radius:number=data.radius;
+      ctx.arc(data.prevX, data.prevY, radius, 0, 2 * Math.PI);
+      if (data.fillColor) {
+        ctx.fill();
+      } else {
+        ctx.stroke();
+      }
+    }
+  } else if (data.type==="triangle") {
+    if (ctx) {
+      // Apply the received drawing data
+      ctx.beginPath();
+      ctx.strokeStyle = data.color;
+      ctx.fillStyle = data.color;
+      ctx.lineWidth = data.width;
+      ctx.moveTo(data.prevX,data.prevY); // Moving triangle to the mouse pointer
+      ctx.lineTo(data.x,data.y); // Creating the first line according to the mouse pointer
+      ctx.lineTo(data.prevX * 2 - data.x, data.y); // Creating the bottom line of the triangle
+      ctx.closePath(); // Closing the path of a triangle so the third line draws automatically
+      if (data.fillColor) {
+      ctx.fill();
+      } else {
+      ctx.stroke();
+      }
+    }
   }
 });
 
@@ -254,5 +293,30 @@ canvas.addEventListener("mouseup", (e) => {
       prevX: prevMouseX,
       prevY: prevMouseY,
     });
+  }
+  else if(selectedTool=="circle"){
+    emitCircleData({
+      fillColor: fillColor.checked,
+      color: selectedColor,
+      type: selectedTool,
+      width: brushWidth,
+      x: e.offsetX,
+      y:e.offsetY,
+      prevX: prevMouseX,
+      prevY: prevMouseY,
+      radius:Math.sqrt(Math.pow(prevMouseX - e.offsetX, 2) + Math.pow(prevMouseY - e.offsetY, 2))
+    })
+  }
+  else if(selectedTool=="triangle"){
+    emitTriangleData({
+      fillColor: fillColor.checked,
+      color: selectedColor,
+      type: selectedTool,
+      width: brushWidth,
+      x: e.offsetX,
+      y:e.offsetY,
+      prevX: prevMouseX,
+      prevY: prevMouseY,
+    })
   }
 });
