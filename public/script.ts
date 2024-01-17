@@ -36,19 +36,12 @@ const emitDrawingData = (data: unknown) => {
   prevMouseY = data.y;
 };
 
-const emitRectangleData = (data) => {
+const emitShapesData = (data) => {
   socket.emit('drawing', data);
   console.log("drawing data:",data)
 };
 
-const emitCircleData =(data)=>{
-  socket.emit('drawing', data);
-  console.log("drawing data:",data)
-}
-const emitTriangleData=(data)=>{
-  socket.emit('drawing', data);
-  console.log("drawing data:",data)
-}
+
   
 const setCanvasBackground = () => {
   // Setting whole canvas background to white, so the download img background will be white
@@ -283,7 +276,7 @@ canvas.addEventListener("mouseup", (e) => {
 
   // Emit drawing data for rectangles only when the mouse button is released
   if (selectedTool === "rectangle") {
-    emitRectangleData({
+    emitShapesData({
       fillColor: fillColor.checked,
       color: selectedColor,
       type: selectedTool,
@@ -295,7 +288,7 @@ canvas.addEventListener("mouseup", (e) => {
     });
   }
   else if(selectedTool=="circle"){
-    emitCircleData({
+    emitShapesData({
       fillColor: fillColor.checked,
       color: selectedColor,
       type: selectedTool,
@@ -308,7 +301,7 @@ canvas.addEventListener("mouseup", (e) => {
     })
   }
   else if(selectedTool=="triangle"){
-    emitTriangleData({
+    emitShapesData({
       fillColor: fillColor.checked,
       color: selectedColor,
       type: selectedTool,
